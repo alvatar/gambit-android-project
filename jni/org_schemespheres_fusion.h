@@ -12,6 +12,8 @@ JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_MainActivity_testPorts(J
 
 JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_initGambit(JNIEnv *, jobject);
 
+JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_schemeMain(JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

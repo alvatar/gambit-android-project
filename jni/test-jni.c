@@ -21,7 +21,11 @@
 #include <string.h>
 #include <jni.h>
 #include <stdio.h>
+#include <android/log.h>
 #include "gambit.h"
+
+#define LOGD(LOG_TAG, ...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#define LOGE(LOG_TAG, ...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 #define LINKER ____20_fib__
 
@@ -33,6 +37,7 @@ ___setup_params_struct setup_params;
 
 int fib(int x);
 char* testports();
+void scheme_main();
 
 JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_MainActivity_testFib(JNIEnv *env, jobject obj)
 {
@@ -78,4 +83,10 @@ JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_initGambit(JNI
     setup_params.debug_settings = debug_settings;
 	
 	___setup(&setup_params);
+}
+
+JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_schemeMain(JNIEnv *env, jobject obj)
+{
+  LOGD("SchemeSpheres", "Running (main)...");
+  scheme_main();
 }

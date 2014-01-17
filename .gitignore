@@ -3,3 +3,5 @@ gen
 libs
 obj
 local.properties
+jni/fib.c
+jni/fib_.c
