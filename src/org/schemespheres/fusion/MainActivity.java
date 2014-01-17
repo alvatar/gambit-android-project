@@ -34,26 +34,53 @@ public class MainActivity extends Activity
 
     private void startGambitThread() {
         Handler handler = getWindow().getDecorView().getHandler();
-        Runnable runnable = new Runnable() {
+        GambitRunnable gambitRunnable = GambitRunnable.getInstance();
+        gambitRunnable.link(this, tv);
+        new Thread(gambitRunnable).start();
+    }
+
+    static
+    {
+        System.loadLibrary("fusion-sphere");
+    }
+
+}
+
+class GambitRunnable implements Runnable {
+    private static GambitRunnable uniqInstance;
+    protected Activity parentActivity;
+    protected TextView tv;
+
+    private GambitRunnable () {}
+
+    public static synchronized GambitRunnable getInstance() {
+        if (uniqInstance == null) {
+            uniqInstance = new GambitRunnable();
+        }
+        return uniqInstance;
+    }
+    
+    public void link(Activity activity, TextView itv) {
+        parentActivity = activity;
+        tv = itv;
+    }
+
+    public void run() {
+        initGambit();
+        schemeMain();
+        // String fib = testFib();
+        // String ls = testPorts();
+
+        // tv.setText(fib + "\n" + ls);
+        printFromScheme(testFib());
+
+    }
+    public void printFromScheme(final String s) {
+        parentActivity.runOnUiThread(new Runnable() {
             public void run() {
-                initGambit();
-                schemeMain();
-                // String fib = testFib();
-                // String ls = testPorts();
-
-                // tv.setText(fib + "\n" + ls);
-                printFromScheme(testFib());
-
+                tv.append(s);
             }
-            public void printFromScheme(final String s) {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        tv.append(s);
-                    }
-                });
-            }
-        };
-        new Thread(runnable).start();
+        });
     }
 
     public native String testFib();
@@ -63,10 +90,4 @@ public class MainActivity extends Activity
     public native void schemeMain();
 
     public native String testPorts();
-
-    static
-    {
-        System.loadLibrary("fusion-sphere");
-    }
-
 }

@@ -39,7 +39,7 @@ int fib(int x);
 char* testports();
 void scheme_main();
 
-JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_MainActivity_testFib(JNIEnv *env, jobject obj)
+JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_GambitRunnable_testFib(JNIEnv *env, jobject obj)
 {
 	char buffer[100];
 	int n = sprintf(buffer, "fib of 10 is: %d", fib(10));
@@ -47,12 +47,12 @@ JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_MainActivity_testFib(JNI
     return (*env)->NewStringUTF(env, buffer);
 }
 
-JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_MainActivity_testPorts(JNIEnv *env, jobject obj)
+JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_GambitRunnable_testPorts(JNIEnv *env, jobject obj)
 {
     return (*env)->NewStringUTF(env, testports());
 }
 
-JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_initGambit(JNIEnv *env, jobject obj)
+JNIEXPORT void JNICALL Java_org_schemespheres_fusion_GambitRunnable_initGambit(JNIEnv *env, jobject obj)
 {
 	// Taken from gambit, lib/main.c. 
 	int debug_settings = ___DEBUG_SETTINGS_INITIAL;
@@ -85,7 +85,7 @@ JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_initGambit(JNI
 	___setup(&setup_params);
 }
 
-JNIEXPORT void JNICALL Java_org_schemespheres_fusion_MainActivity_schemeMain(JNIEnv *env, jobject obj)
+JNIEXPORT void JNICALL Java_org_schemespheres_fusion_GambitRunnable_schemeMain(JNIEnv *env, jobject obj)
 {
   LOGD("SchemeSpheres", "Running (main)...");
   scheme_main();
