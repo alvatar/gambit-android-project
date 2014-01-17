@@ -27,7 +27,7 @@
 #define LOGD(LOG_TAG, ...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 #define LOGE(LOG_TAG, ...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
-#define LINKER ____20_fib__
+#define LINKER ____20_main__
 
 ___BEGIN_C_LINKAGE
 extern ___mod_or_lnk LINKER (___global_state_struct*);
@@ -35,24 +35,8 @@ ___END_C_LINKAGE
 
 ___setup_params_struct setup_params;
 
-/* int fib(int x);
-char* testports(); */
+
 void scheme_main();
-
-/*
-JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_GambitRunnable_testFib(JNIEnv *env, jobject obj)
-{
-	char buffer[100];
-	int n = sprintf(buffer, "fib of 10 is: %d", fib(10));
-	
-    return (*env)->NewStringUTF(env, buffer);
-}
-
-JNIEXPORT jstring JNICALL Java_org_schemespheres_fusion_GambitRunnable_testPorts(JNIEnv *env, jobject obj)
-{
-    return (*env)->NewStringUTF(env, testports());
-}
-*/
 
 JavaVM *g_java_vm = NULL;
 JNIEnv *g_java_gambit_env;

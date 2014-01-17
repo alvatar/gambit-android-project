@@ -1,3 +1,3 @@
-rm fib.c
-rm fib_.c
-gsc -f -link fib.scm
+rm main.c
+rm main_.c
+gsc -f -link main.scm

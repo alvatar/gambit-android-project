@@ -161,6 +161,7 @@
 (define (main)
   (repl-server-initialize-defaults!)
   (repl-server-start "asdf" intercept-output: (lambda (char) (android-display (string char))))
+  ;; You could actually be doing useful stuff here...
   (thread-sleep! +inf.0))
 
 (c-define (c-scheme-main) () void "scheme_main" "" (main))

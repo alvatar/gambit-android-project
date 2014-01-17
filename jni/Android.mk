@@ -22,7 +22,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE    := fusion-sphere
-LOCAL_SRC_FILES := test-jni.c fib.c fib_.c
+LOCAL_SRC_FILES := main_bridge.c main.c main_.c
 LOCAL_CFLAGS := -I./depends -fno-short-enums -I/usr/local/Gambit-C/include
 LOCAL_STATIC_LIBRARIES := gambit
 LOCAL_LDLIBS := -ldl -lc -llog

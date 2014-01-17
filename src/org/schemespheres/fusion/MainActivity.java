@@ -76,13 +76,8 @@ class GambitRunnable implements Runnable {
     public void run() {
         initGambit();
         schemeMain();
-        // String fib = testFib();
-        // String ls = testPorts();
-
-        // tv.setText(fib + "\n" + ls);
-        //printFromScheme(testFib());
-
     }
+
     static public void printFromScheme(final String s) {
         getInstance().getParentActivity().runOnUiThread(new Runnable() {
             public void run() {
@@ -91,11 +86,8 @@ class GambitRunnable implements Runnable {
         });
     }
 
-    //public native String testFib();
-
-    //public native String testPorts();
-
     public native void initGambit();
 
     public native void schemeMain();
 }
+
