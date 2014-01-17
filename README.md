@@ -1,6 +1,10 @@
 ## Gambit on Android example
 
-This example is based on https://github.com/jlongster/gambit-iphone-example
+This example is based on:
+
+* https://github.com/jlongster/gambit-iphone-example
+* https://github.com/seoushi/gambit-android-example
+
 but is instead made for Android
 
 You have to compile for Android with:
