@@ -59,6 +59,14 @@ class GambitRunnable implements Runnable {
         }
         return uniqInstance;
     }
+
+    public Activity getParentActivity() {
+        return parentActivity;
+    }
+
+    public TextView getUiTextView() {
+        return tv;
+    }
     
     public void link(Activity activity, TextView itv) {
         parentActivity = activity;
@@ -72,22 +80,22 @@ class GambitRunnable implements Runnable {
         // String ls = testPorts();
 
         // tv.setText(fib + "\n" + ls);
-        printFromScheme(testFib());
+        //printFromScheme(testFib());
 
     }
-    public void printFromScheme(final String s) {
-        parentActivity.runOnUiThread(new Runnable() {
+    static public void printFromScheme(final String s) {
+        getInstance().getParentActivity().runOnUiThread(new Runnable() {
             public void run() {
-                tv.append(s);
+                getInstance().getUiTextView().append(s);
             }
         });
     }
 
-    public native String testFib();
+    //public native String testFib();
+
+    //public native String testPorts();
 
     public native void initGambit();
 
     public native void schemeMain();
-
-    public native String testPorts();
 }
