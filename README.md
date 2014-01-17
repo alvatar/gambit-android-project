@@ -7,7 +7,7 @@ This example is based on:
 
 ### Building Gambit for Android
 
-There is a script "build_android_lib.sh", which you can run to build Gambit for Android. It needs the variable _$ANDROID\_NDK\_PATH_ Compiling _gsi_ will fail, but you only need the __libgambc.a__ file found in jni/depends. If the script fails to compile this library, you'll probably need to redefine some variables.
+There is a script "build\_android\_lib.sh", which you can run to build Gambit for Android. It needs the variable $ANDROID\_NDK\_PATH Compiling _gsi_ will fail, but you only need the __libgambc.a__ file found in jni/depends. If the script fails to compile this library, you'll probably need to redefine some variables.
  
 ### Building the App
 
