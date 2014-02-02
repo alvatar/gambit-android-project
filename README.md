@@ -18,3 +18,7 @@ You have to compile for Android with:
 Then run telnet to connect to Android's Gambit REPL:
 
     % telnet <android IP> 7000
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/alvatar/gambit-android-project/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
